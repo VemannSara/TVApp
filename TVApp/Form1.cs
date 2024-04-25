@@ -22,7 +22,7 @@ namespace TVApp
 
         private void RefreshData()
         {
-            List<Nezo> adatok = Queries.GetAllViewers().ToList();
+            List<Tv> adatok = Queries.GetAllTvShows().ToList();
             dataGridView1.DataSource = adatok;
         }
     }
