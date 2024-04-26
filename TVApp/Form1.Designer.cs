@@ -54,6 +54,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 244);
             dataGridView1.Name = "dataGridView1";
@@ -186,6 +187,7 @@
             button3.TabIndex = 16;
             button3.Text = "Keresés";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // menuStrip1
             // 

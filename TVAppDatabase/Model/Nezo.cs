@@ -10,6 +10,13 @@ namespace TVApp.Model
     {
         public int Id { get; set; }
         public string Nev { get; set; }
-        public Tv Tvadas { get; set; }
+        public int TvadasId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Nev}";
+        }
     }
+
+
 }

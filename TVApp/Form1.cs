@@ -1,6 +1,7 @@
 //using QueriesLib.Queries;
 //using TVMusor.Model;
 
+using Microsoft.VisualBasic;
 using TVApp.Model;
 using TVAppBusinessLogic;
 
@@ -22,8 +23,32 @@ namespace TVApp
 
         private void RefreshData()
         {
-            List<Tv> adatok = Queries.GetAllTvShows().ToList();
+            TvShowsWithViewer tvShowsWithViewer = new TvShowsWithViewer();
+            List<TvShowsWithViewer> adatok = tvShowsWithViewer.ShowsWithViewerslist();
+            dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = adatok;
+            //dataGridView1.AutoSize = true; nem lesz vele görgetés
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+
+            Queries query = new Queries();
+            string viewerName = textBox1.Text;
+            if (textBox1.Text != null)
+            {
+                //TvShowsWithViewer tvShowsWithViewer = new TvShowsWithViewer();
+                //tvShowsWithViewer.Nev = textBox1.Text;
+                List<TvShowsWithViewer> adatok = query.GetAllTvShowByViewer(viewerName).ToList();
+                dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.DataSource = adatok;
+            }
+            else
+            {
+                MessageBox.Show("írj be egy nevet!");
+            }
         }
     }
 }
