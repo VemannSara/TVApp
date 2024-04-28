@@ -54,10 +54,8 @@ namespace TVApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //List<TvShowsWithViewer> tvShowsWithViewersList = Queries.GetTvShowsWithViewers();            
-            //string xmlMessage = Serializer<List<TvShowsWithViewer>>.Serialize(tvShowsWithViewersList);
-            //Debug.WriteLine(xmlMessage);
-            Form dialog = new Form();
+            
+            XMLForm dialog = new XMLForm();
             dialog.ShowDialog();
         }
     }

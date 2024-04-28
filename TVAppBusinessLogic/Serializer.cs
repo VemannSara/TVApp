@@ -22,13 +22,4 @@ public class Serializer<T> where T: class
 }
         
     
-       
-        //using (var sw = new StringWriter())
-        //{
-        //    using (XmlTextWriter writer = new XmlTextWriter(sw) { Formatting = Formatting.Indented })
-        //    {
-        //        xmlser.Serialize(writer, obj);
-        //        return sw.ToString();
-        //    }
-        //}
 

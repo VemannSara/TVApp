@@ -25,7 +25,7 @@ public class Queries
                     join nezo in db.Nezok on tv.Id equals nezo.TvadasId //Tv adás alapján kötöm össze
                     where nezo.Nev.Contains(inputname)
                     select new TvShowsWithViewer
-                    {                      
+                    {
                         Tvshow = tv,
                         Nezo = nezo,
                         Nev = nezo.Nev,
@@ -80,5 +80,12 @@ public class Queries
                                   ).ToList();
 
         return tvShowsWithViewers;
+    }
+
+    public List<TvShowsWithViewer> FilterDate(DateTime date, List<TvShowsWithViewer> tvShowsWithViewersList)
+    {
+        using var db = new TvContext();
+        var query = tvShowsWithViewersList.Where(tv => tv.Kezdet.Date == date.Date).ToList();
+        return query;
     }
 }
