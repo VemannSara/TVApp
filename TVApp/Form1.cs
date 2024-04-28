@@ -34,32 +34,24 @@ namespace TVApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-
             Queries query = new Queries();
             string viewerName = textBox1.Text;
             string channel = textBox2.Text;
             string genre = textBox3.Text;
             string tvshow = textBox4.Text;
-            if (textBox1.Text != null)
+
+            if (!string.IsNullOrWhiteSpace(viewerName))
             {
-                //TvShowsWithViewer tvShowsWithViewer = new TvShowsWithViewer();
-                //tvShowsWithViewer.Nev = textBox1.Text;
                 List<TvShowsWithViewer> adatok = query.SearchForTvshowByName(viewerName).ToList();
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = adatok;
             }
-
-            if (textBox2.Text != null || textBox3.Text != null || textBox4.Text != null)
+            else if ((!string.IsNullOrWhiteSpace(channel)) || (!string.IsNullOrWhiteSpace(genre)) || (!string.IsNullOrWhiteSpace(tvshow)))
             {
                 List<Tv> adatok2 = query.SearchForTvShow(channel, genre, tvshow).ToList();
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = adatok2;
-
             }
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
