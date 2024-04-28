@@ -4,6 +4,7 @@
 using Microsoft.VisualBasic;
 using TVApp.Model;
 using TVAppBusinessLogic;
+using System.Xml.Serialization;
 
 namespace TVApp
 {
@@ -37,18 +38,35 @@ namespace TVApp
 
             Queries query = new Queries();
             string viewerName = textBox1.Text;
+            string channel = textBox2.Text;
+            string genre = textBox3.Text;
+            string tvshow = textBox4.Text;
             if (textBox1.Text != null)
             {
                 //TvShowsWithViewer tvShowsWithViewer = new TvShowsWithViewer();
                 //tvShowsWithViewer.Nev = textBox1.Text;
-                List<TvShowsWithViewer> adatok = query.GetAllTvShowByViewer(viewerName).ToList();
+                List<TvShowsWithViewer> adatok = query.SearchForTvshowByName(viewerName).ToList();
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = adatok;
             }
-            else
+
+            if (textBox2.Text != null || textBox3.Text != null || textBox4.Text != null)
             {
-                MessageBox.Show("írj be egy nevet!");
+                List<Tv> adatok2 = query.SearchForTvShow(channel, genre, tvshow).ToList();
+                dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.DataSource = adatok2;
+
             }
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //XmlSerializer serializer = new XmlSerializer(typeof(Tv)); 
+    
+
         }
     }
 }

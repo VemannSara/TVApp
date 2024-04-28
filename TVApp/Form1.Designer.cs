@@ -80,6 +80,7 @@
             button1.TabIndex = 3;
             button1.Text = "xml";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 

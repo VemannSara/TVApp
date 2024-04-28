@@ -6,9 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TVApp.Model;
+using System.Xml.Serialization;
 
 namespace TVAppBusinessLogic;
 
+[Serializable]
 public class TvShowsWithViewer
 {
 
