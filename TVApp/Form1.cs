@@ -5,6 +5,7 @@ using Microsoft.VisualBasic;
 using TVApp.Model;
 using TVAppBusinessLogic;
 using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace TVApp
 {
@@ -53,9 +54,11 @@ namespace TVApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //XmlSerializer serializer = new XmlSerializer(typeof(Tv)); 
-    
-
+            //List<TvShowsWithViewer> tvShowsWithViewersList = Queries.GetTvShowsWithViewers();            
+            //string xmlMessage = Serializer<List<TvShowsWithViewer>>.Serialize(tvShowsWithViewersList);
+            //Debug.WriteLine(xmlMessage);
+            Form dialog = new Form();
+            dialog.ShowDialog();
         }
     }
 }
