@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-
 namespace TVApp.Model
 {
     public class TvContext : DbContext

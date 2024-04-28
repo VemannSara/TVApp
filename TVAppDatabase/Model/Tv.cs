@@ -19,6 +19,5 @@
                $"- Started: {Kezdet}\n" +
                $"- Recording: {(Felvetel ? "Yes" : "No")}";
         }
-
     }
 }
