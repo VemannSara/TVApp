@@ -28,12 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FilmValasztasForm";
+            label1 = new Label();
+            listBox1 = new ListBox();
+            label2 = new Label();
+            listBox2 = new ListBox();
+            button1 = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Location = new Point(113, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(148, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Mit szeretnél nézni?";
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(96, 77);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(165, 224);
+            listBox1.TabIndex = 1;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label2.Location = new Point(349, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(201, 20);
+            label2.TabIndex = 2;
+            label2.Text = "Melyik időpontban néznéd?";
+            // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.Location = new Point(367, 77);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(169, 224);
+            listBox2.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(264, 335);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 4;
+            button1.Text = "Ment";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // FilmValasztasForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(685, 450);
+            Controls.Add(button1);
+            Controls.Add(listBox2);
+            Controls.Add(label2);
+            Controls.Add(listBox1);
+            Controls.Add(label1);
+            Name = "FilmValasztasForm";
+            Text = "FilmValasztasForm";
+            Load += FilmValasztasForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private ListBox listBox1;
+        private Label label2;
+        private ListBox listBox2;
+        private Button button1;
     }
 }

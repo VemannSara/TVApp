@@ -54,8 +54,14 @@ namespace TVApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             XMLForm dialog = new XMLForm();
+            dialog.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FilmValasztasForm dialog = new FilmValasztasForm();
             dialog.ShowDialog();
         }
     }

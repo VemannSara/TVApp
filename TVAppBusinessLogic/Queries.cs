@@ -88,4 +88,23 @@ public class Queries
         var query = tvShowsWithViewersList.Where(tv => tv.Kezdet.Date == date.Date).ToList();
         return query;
     }
+
+    public List<string> ShowAllUniqueTvShow()
+    {
+        List <TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        using var db = new TvContext();
+        var uniqueTvShow = adatok.Select(tv => tv.Musor).Distinct().ToList();
+        return uniqueTvShow;
+    }
+
+    public List<DateTime> GetDateForTvShow(string film)
+    {
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        using var db = new TvContext();
+        var dates = adatok.Where(tv => tv.Musor == film).Select(tv => tv.Kezdet).ToList();
+        return dates;
+    }
+
+
+
 }
