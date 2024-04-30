@@ -11,7 +11,11 @@ namespace TVApp
 {
     public partial class Form1 : Form
     {
+        
+        public Label Label8 => label8;
+        public DataGridView DataGridView1 => dataGridView1;
         public Queries Queries { get; set; } = new Queries();
+        public string Nev { get; set; }
 
         public Form1()
         {
@@ -19,11 +23,11 @@ namespace TVApp
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {          
             RefreshData();
         }
 
-        private void RefreshData()
+        public void RefreshData()
         {
             List<TvShowsWithViewer> adatok = Queries.GetTvShowsWithViewers();
             dataGridView1.AutoGenerateColumns = true;
@@ -61,7 +65,8 @@ namespace TVApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FilmValasztasForm dialog = new FilmValasztasForm();
+            FilmValasztasForm dialog = new FilmValasztasForm(Nev);
+            dialog.FormClosed += (sender, e) => RefreshData();
             dialog.ShowDialog();
         }
     }

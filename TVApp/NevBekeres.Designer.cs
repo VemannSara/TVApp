@@ -1,6 +1,6 @@
 ﻿namespace TVApp
 {
-    partial class FilmValasztasForm
+    partial class NevBekeres
     {
         /// <summary>
         /// Required designer variable.
@@ -29,72 +29,63 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            listBox1 = new ListBox();
             label2 = new Label();
-            listBox2 = new ListBox();
+            textBox1 = new TextBox();
             button1 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.Location = new Point(113, 28);
+            label1.Font = new Font("Showcard Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(111, 29);
             label1.Name = "label1";
-            label1.Size = new Size(148, 20);
+            label1.Size = new Size(46, 18);
             label1.TabIndex = 0;
-            label1.Text = "Mit szeretnél nézni?";
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(96, 77);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(165, 224);
-            listBox1.TabIndex = 1;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            label1.Text = "Szia!";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label2.Location = new Point(349, 28);
+            label2.Font = new Font("Showcard Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(78, 64);
             label2.Name = "label2";
-            label2.Size = new Size(201, 20);
-            label2.TabIndex = 2;
-            label2.Text = "Melyik időpontban néznéd?";
+            label2.Size = new Size(117, 18);
+            label2.TabIndex = 1;
+            label2.Text = "Hogy hívnak?";
             // 
-            // listBox2
+            // textBox1
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(367, 77);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(169, 224);
-            listBox2.TabIndex = 3;
+            textBox1.BackColor = SystemColors.Window;
+            textBox1.Location = new Point(50, 100);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(170, 30);
+            textBox1.TabIndex = 2;
             // 
             // button1
             // 
-            button1.Location = new Point(264, 335);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Location = new Point(87, 153);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
-            button1.TabIndex = 4;
-            button1.Text = "Ment";
+            button1.TabIndex = 3;
+            button1.Text = "kész";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // FilmValasztasForm
+            // NevBekeres
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(685, 450);
+            BackColor = SystemColors.GradientInactiveCaption;
+            ClientSize = new Size(275, 213);
             Controls.Add(button1);
-            Controls.Add(listBox2);
+            Controls.Add(textBox1);
             Controls.Add(label2);
-            Controls.Add(listBox1);
             Controls.Add(label1);
-            Name = "FilmValasztasForm";
-            Text = "FilmValasztasForm";
-            Load += FilmValasztasForm_Load;
+            Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            Name = "NevBekeres";
+            Text = "Nev";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -102,9 +93,8 @@
         #endregion
 
         private Label label1;
-        private ListBox listBox1;
         private Label label2;
-        private ListBox listBox2;
+        private TextBox textBox1;
         private Button button1;
     }
 }

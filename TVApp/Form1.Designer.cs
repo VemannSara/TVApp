@@ -48,6 +48,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             userToolStripMenuItem = new ToolStripMenuItem();
             adminToolStripMenuItem = new ToolStripMenuItem();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -59,7 +60,7 @@
             dataGridView1.Location = new Point(12, 244);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(776, 194);
+            dataGridView1.Size = new Size(776, 334);
             dataGridView1.TabIndex = 1;
             // 
             // label1
@@ -220,11 +221,22 @@
             adminToolStripMenuItem.Size = new Size(136, 26);
             adminToolStripMenuItem.Text = "Admin";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label8.Location = new Point(337, 28);
+            label8.Name = "label8";
+            label8.Size = new Size(23, 28);
+            label8.TabIndex = 18;
+            label8.Text = "a";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 590);
+            Controls.Add(label8);
             Controls.Add(button3);
             Controls.Add(dateTimePicker1);
             Controls.Add(button2);
@@ -274,5 +286,7 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem userToolStripMenuItem;
         private ToolStripMenuItem adminToolStripMenuItem;
+        private Label label8;
+        private Label label9;
     }
 }

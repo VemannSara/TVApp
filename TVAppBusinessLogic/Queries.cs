@@ -105,6 +105,19 @@ public class Queries
         return dates;
     }
 
-
-
+    public void AddNewName(string name, string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        var tvShow = db.Tvadasok.FirstOrDefault(tv => tv.Musor == musor && tv.Kezdet == date);
+        if (tvShow != null)
+        {
+            var newViewer = new Nezo
+            {
+                Nev = name,
+                TvadasId = tvShow.Id
+            };
+            db.Nezok.Add(newViewer);
+            db.SaveChanges();
+        }
+    }
 }
