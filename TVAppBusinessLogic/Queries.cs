@@ -1,4 +1,6 @@
-﻿using TVApp.Model;
+﻿using System.Linq;
+using TVApp.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TVAppBusinessLogic;
 
@@ -119,5 +121,37 @@ public class Queries
             db.Nezok.Add(newViewer);
             db.SaveChanges();
         }
+    }
+
+    public bool IsSomeoneWatching(string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        var nev = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date).Select(tv => tv.Nev).FirstOrDefault();
+        if (string.IsNullOrWhiteSpace(nev))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+    public string WhoIsWathing(string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        var nev = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date).Select(tv => tv.Nev).FirstOrDefault();
+        return nev; // esetleg exeprion ha nem nézi senki
+    }
+
+    // update tvshowwithviewer
+    public List<TvShowsWithViewer> WatchingTogether(string name, string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        var update = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date);
+        return update.ToList(); // todo esetleg tv id alapján ahol ugyanaz 2 vieweré, ott egymás mellett legyen
     }
 }

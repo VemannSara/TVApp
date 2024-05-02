@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,18 +51,37 @@ public partial class FilmValasztasForm : Form
             }
         }
     }
-
+    //TODO felvétel gomb
+    // felvétel: megnéz, hogy van-e másikigaz felvétel, ha igen megnéz dátum (plusz-minusz milyen hosszúak a filmek), ha ez a tartomány egyezik, akkor felvétel-> igen
     private void button1_Click(object sender, EventArgs e)
     {
+        // ha nev nem üres akkor msgbox xy nézi, szeretnéd vele nézni? (igen nem)
+        // név + masik nev
+        // ha nem másik időpont felajánlás--> újra kilistázza az időpontokat azon kívűl amit már kilistázott
         
         DateTime date;
         string selectedfilm = listBox1.SelectedItem as string;
         date = Convert.ToDateTime(listBox2.SelectedItem);
-        Queries.AddNewName(nev, selectedfilm, date);
-        List<TvShowsWithViewer> adatok = Queries.GetTvShowsWithViewers();
-        this.Hide();
-        //form1.DataGridView1.AutoGenerateColumns = true;
-        //form1.DataGridView1.DataSource = adatok;
-        this.Close();
+        string nezo = Queries.WhoIsWathing(selectedfilm, date);
+        if (Queries.IsSomeoneWatching(selectedfilm,date))
+        {
+            var result = MessageBox.Show("A filmet már " + nezo + " nézi. Szeretnéd együtt néni vele?","Közös fimezés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Queries.AddNewName(nev, selectedfilm, date);
+                this.Hide();
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Válassz másik időpontot, vagy indíts felvételt, ha még nem indított senki!");
+            }
+        }
+        else
+        {
+            Queries.AddNewName(nev, selectedfilm, date);
+            this.Hide();
+            this.Close();
+        }
     }
 }
