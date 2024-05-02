@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TVApp.Model;
 using TVAppBusinessLogic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TVApp;
 
@@ -55,8 +56,8 @@ public partial class FilmValasztasForm : Form
     // felvétel: megnéz, hogy van-e másikigaz felvétel, ha igen megnéz dátum (plusz-minusz milyen hosszúak a filmek), ha ez a tartomány egyezik, akkor felvétel-> igen
     private void button1_Click(object sender, EventArgs e)
     {
-        // ha nev nem üres akkor msgbox xy nézi, szeretnéd vele nézni? (igen nem)
-        // név + masik nev
+        
+        
         // ha nem másik időpont felajánlás--> újra kilistázza az időpontokat azon kívűl amit már kilistázott
         
         DateTime date;
@@ -65,16 +66,23 @@ public partial class FilmValasztasForm : Form
         string nezo = Queries.WhoIsWathing(selectedfilm, date);
         if (Queries.IsSomeoneWatching(selectedfilm,date))
         {
-            var result = MessageBox.Show("A filmet már " + nezo + " nézi. Szeretnéd együtt néni vele?","Közös fimezés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (Queries.AmIWatching(selectedfilm, date, nev))
             {
-                Queries.AddNewName(nev, selectedfilm, date);
-                this.Hide();
-                this.Close();
+                MessageBox.Show("Ezt a fimet már te nézed!");
             }
-            else if (result == DialogResult.No)
+            else
             {
-                MessageBox.Show("Válassz másik időpontot, vagy indíts felvételt, ha még nem indított senki!");
+                var result = MessageBox.Show("A filmet már " + nezo + " nézi. Szeretnéd együtt néni vele?","Közös fimezés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Queries.AddNewName(nev, selectedfilm, date);
+                    this.Hide();
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    MessageBox.Show("Válassz másik időpontot, vagy indíts felvételt, ha még nem indított senki!");
+                }
             }
         }
         else
@@ -84,4 +92,11 @@ public partial class FilmValasztasForm : Form
             this.Close();
         }
     }
+    private void AddNewNameAndClose(string name, string musor, DateTime date)
+    {
+        Queries.AddNewName(nev, musor, date);
+        this.Hide();
+        this.Close();
+    }
+
 }

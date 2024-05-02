@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TVApp.Model;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -81,7 +82,17 @@ public class Queries
                                   }
                                   ).ToList();
 
-        return tvShowsWithViewers;
+        List<TvShowsWithViewer> tvShowsWithViewersDistincted = tvShowsWithViewers.DistinctBy(item => item.TvId).ToList();
+
+        foreach (TvShowsWithViewer tvShowsWithViewer in tvShowsWithViewersDistincted)
+        {
+            string ujNev = string.Empty;
+            tvShowsWithViewers.Where(item => item.TvId == tvShowsWithViewer.TvId).ToList().ForEach(item => ujNev += $"{item.Nev},");
+            ujNev = ujNev.Remove(ujNev.Length - 1, 1);
+            tvShowsWithViewer.Nev = ujNev;
+        }
+
+        return tvShowsWithViewersDistincted;
     }
 
     public List<TvShowsWithViewer> FilterDate(DateTime date, List<TvShowsWithViewer> tvShowsWithViewersList)
@@ -137,6 +148,21 @@ public class Queries
             return true;
         }
 
+    }
+    public bool AmIWatching(string musor, DateTime date, string actualname)
+    {
+
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        var nev = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date).Select(tv => tv.Nev).FirstOrDefault();
+        if (!nev.Contains(actualname))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     public string WhoIsWathing(string musor, DateTime date)
     {
