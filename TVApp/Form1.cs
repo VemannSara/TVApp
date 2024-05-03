@@ -32,6 +32,7 @@ namespace TVApp
             List<TvShowsWithViewer> adatok = Queries.GetTvShowsWithViewers();
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = adatok;
+            dataGridView1.ReadOnly = true;
             //dataGridView1.AutoSize = true; nem lesz vele görgetés
         }
 

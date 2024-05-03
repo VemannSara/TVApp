@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using TVApp.Model;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -178,6 +179,14 @@ public class Queries
         using var db = new TvContext();
         List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
         var update = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date);
-        return update.ToList(); // todo esetleg tv id alapján ahol ugyanaz 2 vieweré, ott egymás mellett legyen
+        return update.ToList(); 
     }
+
+    public void SetRecording(string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        db.Tvadasok.Where(tv => tv.Musor == musor && tv.Kezdet == date).FirstOrDefault().Felvetel = true;
+        db.SaveChanges();
+    }
+
 }

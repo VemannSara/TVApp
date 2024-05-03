@@ -33,6 +33,7 @@
             label2 = new Label();
             listBox2 = new ListBox();
             button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -74,7 +75,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(264, 335);
+            button1.Location = new Point(200, 325);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 4;
@@ -82,11 +83,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(335, 325);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 5;
+            button2.Text = "Felvétel";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FilmValasztasForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(685, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listBox2);
             Controls.Add(label2);
@@ -106,5 +118,6 @@
         private Label label2;
         private ListBox listBox2;
         private Button button1;
+        private Button button2;
     }
 }

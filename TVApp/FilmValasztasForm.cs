@@ -56,15 +56,11 @@ public partial class FilmValasztasForm : Form
     // felvétel: megnéz, hogy van-e másikigaz felvétel, ha igen megnéz dátum (plusz-minusz milyen hosszúak a filmek), ha ez a tartomány egyezik, akkor felvétel-> igen
     private void button1_Click(object sender, EventArgs e)
     {
-        
-        
-        // ha nem másik időpont felajánlás--> újra kilistázza az időpontokat azon kívűl amit már kilistázott
-        
         DateTime date;
         string selectedfilm = listBox1.SelectedItem as string;
         date = Convert.ToDateTime(listBox2.SelectedItem);
         string nezo = Queries.WhoIsWathing(selectedfilm, date);
-        if (Queries.IsSomeoneWatching(selectedfilm,date))
+        if (Queries.IsSomeoneWatching(selectedfilm, date))
         {
             if (Queries.AmIWatching(selectedfilm, date, nev))
             {
@@ -72,31 +68,40 @@ public partial class FilmValasztasForm : Form
             }
             else
             {
-                var result = MessageBox.Show("A filmet már " + nezo + " nézi. Szeretnéd együtt néni vele?","Közös fimezés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("A filmet már " + nezo + " nézi. Szeretnéd együtt néni vele?", "Közös fimezés", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    Queries.AddNewName(nev, selectedfilm, date);
-                    this.Hide();
-                    this.Close();
+                    AddNewNameAndClose(nev, selectedfilm, date);
                 }
                 else if (result == DialogResult.No)
                 {
-                    MessageBox.Show("Válassz másik időpontot, vagy indíts felvételt, ha még nem indított senki!");
+                    MessageBox.Show("Válassz másik időpontot, vagy indíts felvételt, ha még nem indított senki!", "Közös filmezés", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
         else
         {
-            Queries.AddNewName(nev, selectedfilm, date);
-            this.Hide();
-            this.Close();
+            AddNewNameAndClose(nev, selectedfilm, date);
         }
     }
+
     private void AddNewNameAndClose(string name, string musor, DateTime date)
     {
-        Queries.AddNewName(nev, musor, date);
+        Queries.AddNewName(name, musor, date);
         this.Hide();
         this.Close();
     }
 
+    private void button2_Click(object sender, EventArgs e)
+    {
+        // fgv vane már felvétel
+        // ha van masik fgv ido ellenőrzés
+        DateTime date;
+        string selectedfilm = listBox1.SelectedItem as string;
+        date = Convert.ToDateTime(listBox2.SelectedItem);
+        Queries.SetRecording(selectedfilm, date);
+        MessageBox.Show("A felvétel beállítva", "Felvétel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        this.Hide();
+        this.Close();
+    }
 }
