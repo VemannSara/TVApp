@@ -105,7 +105,7 @@ public class Queries
 
     public List<string> ShowAllUniqueTvShow()
     {
-        List <TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
         using var db = new TvContext();
         var uniqueTvShow = adatok.Select(tv => tv.Musor).Distinct().ToList();
         return uniqueTvShow;
@@ -179,7 +179,7 @@ public class Queries
         using var db = new TvContext();
         List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
         var update = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date);
-        return update.ToList(); 
+        return update.ToList();
     }
 
     public void SetRecording(string musor, DateTime date)
@@ -189,4 +189,35 @@ public class Queries
         db.SaveChanges();
     }
 
+    public bool IsThereAnyRecording()
+    {
+        using var db = new TvContext();
+        var query = db.Tvadasok.Where(tv => tv.Felvetel == true).ToList();
+        return query != null;
+    }
+
+    public bool IsThisOneRecorded(string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        var query = db.Tvadasok.Where(tv => tv.Musor == musor && tv.Kezdet == date && tv.Felvetel == true).FirstOrDefault();
+        return query != null;
+    }
+
+    public bool CanWeRecord(string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        var felvetelek = db.Tvadasok.Where(tv => tv.Felvetel == true).ToList();
+        var hossz = db.Tvadasok.Where(tv => tv.Musor == musor && tv.Kezdet == date).Select(tv => tv.Hossz).FirstOrDefault();
+
+        foreach (var film in felvetelek)
+        {
+            DateTime endtimeRec = film.Kezdet.AddMinutes(film.Hossz);
+            DateTime endtimeSelect = date.AddMinutes(hossz);
+            if ((date.Date == film.Kezdet.Date) && (endtimeRec >= date || endtimeSelect >= date))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

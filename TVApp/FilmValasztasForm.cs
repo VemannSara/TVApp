@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Channels;
@@ -92,13 +93,39 @@ public partial class FilmValasztasForm : Form
         this.Close();
     }
 
-    private void button2_Click(object sender, EventArgs e)
+    private void FelvetelBtn_Click(object sender, EventArgs e)
     {
-        // fgv vane már felvétel
-        // ha van masik fgv ido ellenőrzés
         DateTime date;
         string selectedfilm = listBox1.SelectedItem as string;
         date = Convert.ToDateTime(listBox2.SelectedItem);
+        // fgv vane már felvétel
+        // ha van masik fgv ido ellenőrzés
+        if (Queries.IsThereAnyRecording())
+        {
+            if(Queries.IsThisOneRecorded(selectedfilm, date))
+            {
+                MessageBox.Show("Ez a film már fel van véve", "Felvétel",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (Queries.CanWeRecord(selectedfilm,date))
+                {
+                    Felvetel(selectedfilm, date);
+                }
+                else
+                {
+                    MessageBox.Show("Ebben az időpontban már nem lehet több filmet felvenni", "Felvétel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        else
+        {
+            Felvetel(selectedfilm, date);
+        }
+    }
+
+    private void Felvetel(string selectedfilm, DateTime date)
+    {
         Queries.SetRecording(selectedfilm, date);
         MessageBox.Show("A felvétel beállítva", "Felvétel", MessageBoxButtons.OK, MessageBoxIcon.Information);
         this.Hide();

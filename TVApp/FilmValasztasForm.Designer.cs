@@ -91,7 +91,7 @@
             button2.TabIndex = 5;
             button2.Text = "Felvétel";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += FelvetelBtn_Click;
             // 
             // FilmValasztasForm
             // 

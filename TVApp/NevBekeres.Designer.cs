@@ -37,20 +37,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Showcard Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(111, 29);
+            label1.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(106, 31);
             label1.Name = "label1";
-            label1.Size = new Size(46, 18);
+            label1.Size = new Size(50, 20);
             label1.TabIndex = 0;
             label1.Text = "Szia!";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Showcard Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(78, 64);
             label2.Name = "label2";
-            label2.Size = new Size(117, 18);
+            label2.Size = new Size(120, 20);
             label2.TabIndex = 1;
             label2.Text = "Hogy hívnak?";
             // 
