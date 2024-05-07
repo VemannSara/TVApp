@@ -39,20 +39,5 @@ namespace TVAppBusinessLogic
                 }
             }
         }
-
-        //public async Task StartMonitoring()
-        //{
-        //    DateTime notificationTime = start.AddMinutes(-15);
-
-        //    TimeSpan delay = notificationTime - DateTime.Now;
-
-        //    if (delay.TotalMilliseconds > 0)
-        //    {
-        //        await Task.Delay(delay);
-
-        //        //ablak mutatása
-        //    }
-            
-        //}
     }
 }
