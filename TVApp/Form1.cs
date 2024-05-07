@@ -20,6 +20,10 @@ namespace TVApp
         public Form1()
         {
             InitializeComponent();
+            MovieNotifier idozito = new MovieNotifier();
+            idozito.MovieStarting += (musor) => MessageBox.Show($"A {musor} 15 perc múlva kezdõdik.", "Film kezdés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // külön task-ban elindítja a monitorozást
+            Task.Factory.StartNew(() => idozito.Monitor());
         }
 
         private void Form1_Load(object sender, EventArgs e)
