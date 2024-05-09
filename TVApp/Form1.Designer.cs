@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             button1 = new Button();
@@ -49,6 +50,7 @@
             userToolStripMenuItem = new ToolStripMenuItem();
             adminToolStripMenuItem = new ToolStripMenuItem();
             label8 = new Label();
+            notifyIcon1 = new NotifyIcon(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -212,14 +214,15 @@
             // userToolStripMenuItem
             // 
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(136, 26);
+            userToolStripMenuItem.Size = new Size(224, 26);
             userToolStripMenuItem.Text = "User";
             // 
             // adminToolStripMenuItem
             // 
             adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(136, 26);
+            adminToolStripMenuItem.Size = new Size(224, 26);
             adminToolStripMenuItem.Text = "Admin";
+            adminToolStripMenuItem.Click += adminToolStripMenuItem_Click;
             // 
             // label8
             // 
@@ -230,6 +233,11 @@
             label8.Size = new Size(23, 28);
             label8.TabIndex = 18;
             label8.Text = "a";
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
             // 
             // Form1
             // 
@@ -288,5 +296,6 @@
         private ToolStripMenuItem adminToolStripMenuItem;
         private Label label8;
         private Label label9;
+        private NotifyIcon notifyIcon1;
     }
 }

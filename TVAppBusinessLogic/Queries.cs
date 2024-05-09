@@ -220,4 +220,18 @@ public class Queries
         }
         return true;
     }
+
+    public void AddNewShow(string musor, string csatorna, string mufaj, DateTime idopont)
+    {
+        using var db = new TvContext();
+        Tv newShow = new Tv
+        {
+            Musor = musor,
+            Csatorna = csatorna,
+            Mufaj = mufaj,
+            Kezdet = idopont
+        };
+        db.Tvadasok.Add(newShow);
+        db.SaveChanges();
+    }
 }
