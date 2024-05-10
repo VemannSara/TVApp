@@ -41,12 +41,15 @@
             button2 = new Button();
             UpdateButton = new Button();
             dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            MusorTextbox = new TextBox();
+            CsatornaTextBox = new TextBox();
+            MufajTextbox = new TextBox();
             dateTimePicker1 = new DateTimePicker();
+            label5 = new Label();
+            numericUpDown1 = new NumericUpDown();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -55,7 +58,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(829, 28);
+            menuStrip1.Size = new Size(890, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -88,7 +91,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(374, 160);
+            label1.Location = new Point(430, 160);
             label1.Name = "label1";
             label1.Size = new Size(54, 20);
             label1.TabIndex = 1;
@@ -97,7 +100,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(227, 64);
+            label2.Location = new Point(257, 64);
             label2.Name = "label2";
             label2.Size = new Size(50, 20);
             label2.TabIndex = 2;
@@ -106,7 +109,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(374, 64);
+            label3.Location = new Point(417, 64);
             label3.Name = "label3";
             label3.Size = new Size(67, 20);
             label3.TabIndex = 3;
@@ -115,7 +118,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(557, 64);
+            label4.Location = new Point(600, 64);
             label4.Name = "label4";
             label4.Size = new Size(47, 20);
             label4.TabIndex = 4;
@@ -123,7 +126,7 @@
             // 
             // AddButton
             // 
-            AddButton.Location = new Point(34, 73);
+            AddButton.Location = new Point(747, 100);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(94, 29);
             AddButton.TabIndex = 5;
@@ -133,7 +136,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(34, 130);
+            button2.Location = new Point(66, 169);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 6;
@@ -143,7 +146,7 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new Point(34, 192);
+            UpdateButton.Location = new Point(747, 169);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(94, 29);
             UpdateButton.TabIndex = 7;
@@ -157,46 +160,66 @@
             dataGridView1.Location = new Point(0, 253);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(829, 229);
+            dataGridView1.Size = new Size(890, 229);
             dataGridView1.TabIndex = 8;
             // 
-            // textBox1
+            // MusorTextbox
             // 
-            textBox1.Location = new Point(199, 100);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(114, 27);
-            textBox1.TabIndex = 9;
+            MusorTextbox.Location = new Point(227, 100);
+            MusorTextbox.Name = "MusorTextbox";
+            MusorTextbox.Size = new Size(114, 27);
+            MusorTextbox.TabIndex = 9;
             // 
-            // textBox2
+            // CsatornaTextBox
             // 
-            textBox2.Location = new Point(353, 100);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(122, 27);
-            textBox2.TabIndex = 10;
+            CsatornaTextBox.Location = new Point(393, 100);
+            CsatornaTextBox.Name = "CsatornaTextBox";
+            CsatornaTextBox.Size = new Size(122, 27);
+            CsatornaTextBox.TabIndex = 10;
             // 
-            // textBox3
+            // MufajTextbox
             // 
-            textBox3.Location = new Point(521, 100);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(119, 27);
-            textBox3.TabIndex = 11;
+            MufajTextbox.Location = new Point(578, 100);
+            MufajTextbox.Name = "MufajTextbox";
+            MufajTextbox.Size = new Size(119, 27);
+            MufajTextbox.TabIndex = 11;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(276, 194);
+            dateTimePicker1.Location = new Point(336, 194);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(259, 27);
             dateTimePicker1.TabIndex = 12;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(97, 64);
+            label5.Name = "label5";
+            label5.Size = new Size(24, 20);
+            label5.TabIndex = 13;
+            label5.Text = "ID";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(80, 102);
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(55, 27);
+            numericUpDown1.TabIndex = 14;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(829, 482);
+            ClientSize = new Size(890, 482);
+            Controls.Add(numericUpDown1);
+            Controls.Add(label5);
             Controls.Add(dateTimePicker1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(MufajTextbox);
+            Controls.Add(CsatornaTextBox);
+            Controls.Add(MusorTextbox);
             Controls.Add(dataGridView1);
             Controls.Add(UpdateButton);
             Controls.Add(button2);
@@ -213,6 +236,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -232,9 +256,11 @@
         private Button button2;
         private Button UpdateButton;
         private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox MusorTextbox;
+        private TextBox CsatornaTextBox;
+        private TextBox MufajTextbox;
         private DateTimePicker dateTimePicker1;
+        private Label label5;
+        private NumericUpDown numericUpDown1;
     }
 }

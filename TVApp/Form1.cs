@@ -6,6 +6,7 @@ using TVApp.Model;
 using TVAppBusinessLogic;
 using System.Xml.Serialization;
 using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace TVApp
 {
@@ -87,6 +88,7 @@ namespace TVApp
         {
             //TODO jelszo check
             AdminForm adminForm = new AdminForm();
+            adminForm.FormClosed += (sender, e) => RefreshData();
             adminForm.ShowDialog();
 
         }

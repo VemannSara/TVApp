@@ -234,4 +234,32 @@ public class Queries
         db.Tvadasok.Add(newShow);
         db.SaveChanges();
     }
+
+    public void DeleteTvShows(int id)
+    {
+        using var db = new TvContext();
+        var torles = db.Tvadasok.Where(tv => tv.Id == id).FirstOrDefault();
+        if (torles != null)
+        {
+            db.Tvadasok.Remove(torles);
+            db.SaveChanges();
+        }
+        // doto exeption
+    }
+
+    public void Update(int id, Tv tvadas)
+    {
+        using var db = new TvContext();
+        var update = db.Tvadasok.Where(tv => tv.Id == id).FirstOrDefault();
+        if (update != null)
+        {
+            update.Musor = tvadas.Musor;
+            update.Mufaj = tvadas.Mufaj;
+            update.Csatorna = tvadas.Csatorna;
+            update.Kezdet = tvadas.Kezdet;
+
+            db.SaveChanges();
+        }
+        //todo exeption
+    }
 }
