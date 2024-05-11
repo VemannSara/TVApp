@@ -53,6 +53,8 @@
             labe6 = new Label();
             label7 = new Label();
             button1 = new Button();
+            plotView2 = new OxyPlot.WindowsForms.PlotView();
+            plotView3 = new OxyPlot.WindowsForms.PlotView();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -166,7 +168,7 @@
             dataGridView1.Location = new Point(0, 253);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(917, 260);
+            dataGridView1.Size = new Size(917, 197);
             dataGridView1.TabIndex = 8;
             // 
             // MusorTextbox
@@ -233,6 +235,7 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(250, 27);
             dateTimePicker2.TabIndex = 16;
+            dateTimePicker2.Value = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // dateTimePicker3
             // 
@@ -240,6 +243,7 @@
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.Size = new Size(250, 27);
             dateTimePicker3.TabIndex = 17;
+            dateTimePicker3.Value = new DateTime(2024, 1, 3, 0, 0, 0, 0);
             // 
             // labe6
             // 
@@ -269,11 +273,37 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // plotView2
+            // 
+            plotView2.Location = new Point(42, 510);
+            plotView2.Name = "plotView2";
+            plotView2.PanCursor = Cursors.Hand;
+            plotView2.Size = new Size(378, 275);
+            plotView2.TabIndex = 21;
+            plotView2.Text = "plotView2";
+            plotView2.ZoomHorizontalCursor = Cursors.SizeWE;
+            plotView2.ZoomRectangleCursor = Cursors.SizeNWSE;
+            plotView2.ZoomVerticalCursor = Cursors.SizeNS;
+            // 
+            // plotView3
+            // 
+            plotView3.Location = new Point(539, 497);
+            plotView3.Name = "plotView3";
+            plotView3.PanCursor = Cursors.Hand;
+            plotView3.Size = new Size(378, 288);
+            plotView3.TabIndex = 22;
+            plotView3.Text = "plotView3";
+            plotView3.ZoomHorizontalCursor = Cursors.SizeWE;
+            plotView3.ZoomRectangleCursor = Cursors.SizeNWSE;
+            plotView3.ZoomVerticalCursor = Cursors.SizeNS;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1580, 794);
+            ClientSize = new Size(1580, 859);
+            Controls.Add(plotView3);
+            Controls.Add(plotView2);
             Controls.Add(button1);
             Controls.Add(label7);
             Controls.Add(labe6);
@@ -334,5 +364,7 @@
         private Label labe6;
         private Label label7;
         private Button button1;
+        private OxyPlot.WindowsForms.PlotView plotView2;
+        private OxyPlot.WindowsForms.PlotView plotView3;
     }
 }

@@ -30,13 +30,14 @@ namespace TVApp
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            // diagramm
-
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
             RefreshData();
+            CreateBarSeries();
+            CreatePieChartChannel();
+            CreatePieChartGenre();
         }
 
         private void CreateBarSeries()
@@ -51,7 +52,7 @@ namespace TVApp
             {
                 ItemsSource = ChartHelper.CreateBarItems(watchingdata),
                 LabelPlacement = LabelPlacement.Inside,
-                LabelFormatString = "{0:.00} perc"
+                LabelFormatString = "{0} perc"
             };
             model.Series.Add(barSeries);
 
@@ -69,6 +70,33 @@ namespace TVApp
             });
 
             plotView1.Model = model;
+        }
+
+        private void CreatePieChartChannel()
+        {
+            var model = new PlotModel { Title = "Csatornák nézettsége" };
+
+            PieSeries seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
+            
+            Dictionary<string, double> channeldata = Queries.GetChannelData();
+            seriesP1.Slices = ChartHelper.CreatePieSlices(channeldata);       
+
+            model.Series.Add(seriesP1);
+
+            plotView2.Model = model;           
+        }
+
+        private void CreatePieChartGenre()
+        {
+            var model = new PlotModel { Title = "Műfajok szerinti megoszlás" };
+
+            PieSeries seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
+            Dictionary<string,double> genredata = Queries.GetGenreData();
+
+            seriesP1.Slices = ChartHelper.CreatePieSlices(genredata);
+
+            model.Series.Add(seriesP1);
+            plotView3.Model = model;
         }
         public void RefreshData()
         {

@@ -274,7 +274,7 @@ public class Queries
         var query = adatok.Where(tv => tv.Kezdet.Date >= kezdet.Date && tv.Kezdet.Date <= veg.Date).ToList();
         foreach (var adat in query)
         {
-            if (adat.Nev != null) // tehát nézi valaki a filmet
+            if (!string.IsNullOrWhiteSpace(adat.Nev)) // tehát nézi valaki a filmet
             {
                 dict[adat.Kezdet.Date] += adat.Hossz; // megkeresi az adott kulcsú elemet és az értéket módosítja
                 //dict.Add(adat.Kezdet, adat.Hossz);
@@ -282,4 +282,55 @@ public class Queries
         }
         return dict;
     }
+
+    public Dictionary<string,double> GetChannelData()
+    {
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        Dictionary<string, double> dict = new Dictionary<string, double>();
+
+        var uniquechannels = adatok.Select(tv => tv.Csatorna).Distinct().ToList();
+
+        foreach (var channel in uniquechannels)
+        {
+            dict[channel] = 0;
+        }
+
+        foreach (var adat in adatok)
+        {
+            if (!string.IsNullOrWhiteSpace(adat.Nev))
+            {
+                if (dict.ContainsKey(adat.Csatorna))
+                {
+                    dict[adat.Csatorna] += 1; 
+                }
+                
+            }
+        }
+        return dict;
+    }
+
+    public Dictionary<string, double> GetGenreData()
+    {
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+        Dictionary<string, double> dict = new Dictionary<string, double>();
+
+        var uniquegenres = adatok.Select(tv => tv.Mufaj).Distinct().ToList();
+
+        foreach (var genre in uniquegenres)
+        {
+            dict[genre] = 0;
+        }
+
+        foreach (var adat in adatok)
+        {
+            if (dict.ContainsKey(adat.Mufaj))
+            {
+                dict[adat.Mufaj] += 1;
+            }
+        }
+        return dict;
+    }
+
 }

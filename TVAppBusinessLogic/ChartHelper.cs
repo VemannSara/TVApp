@@ -12,9 +12,9 @@ namespace TVAppBusinessLogic
         public List<BarItem> CreateBarItems(Dictionary<DateTime,int> dict)
         {
             List<BarItem> barItems = new List<BarItem>();
-            foreach (int hour in dict.Values)
+            foreach (int perc in dict.Values)
             {
-                barItems.Add(new BarItem() { Value = hour });
+                barItems.Add(new BarItem() { Value = perc });
             }
             return barItems;
         }
@@ -28,6 +28,17 @@ namespace TVAppBusinessLogic
                 kezdet = kezdet.AddDays(1);
             }
             return dict;
+        }
+
+        public List<PieSlice> CreatePieSlices(Dictionary<string,double> dict)
+        {
+            List<PieSlice> pieSlices = new List<PieSlice>();
+            foreach (var item in dict)
+            {
+                pieSlices.Add(new PieSlice(item.Key,item.Value) { IsExploded=true});
+            }
+            return pieSlices;
+
         }
     }
 }
