@@ -48,6 +48,7 @@
             // 
             // listBox1
             // 
+            listBox1.BackColor = SystemColors.InactiveBorder;
             listBox1.FormattingEnabled = true;
             listBox1.Location = new Point(96, 77);
             listBox1.Name = "listBox1";
@@ -67,6 +68,7 @@
             // 
             // listBox2
             // 
+            listBox2.BackColor = SystemColors.InactiveBorder;
             listBox2.FormattingEnabled = true;
             listBox2.Location = new Point(367, 77);
             listBox2.Name = "listBox2";
@@ -97,7 +99,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(685, 450);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(622, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listBox2);

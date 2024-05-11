@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            menuToolStripMenuItem = new ToolStripMenuItem();
-            userToolStripMenuItem = new ToolStripMenuItem();
-            adminToolStripMenuItem = new ToolStripMenuItem();
-            statisztikaToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -55,46 +50,10 @@
             button1 = new Button();
             plotView2 = new OxyPlot.WindowsForms.PlotView();
             plotView3 = new OxyPlot.WindowsForms.PlotView();
-            menuStrip1.SuspendLayout();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1580, 28);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // menuToolStripMenuItem
-            // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { userToolStripMenuItem, adminToolStripMenuItem });
-            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(60, 24);
-            menuToolStripMenuItem.Text = "Menu";
-            // 
-            // userToolStripMenuItem
-            // 
-            userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(136, 26);
-            userToolStripMenuItem.Text = "User";
-            // 
-            // adminToolStripMenuItem
-            // 
-            adminToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { statisztikaToolStripMenuItem });
-            adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(136, 26);
-            adminToolStripMenuItem.Text = "Admin";
-            // 
-            // statisztikaToolStripMenuItem
-            // 
-            statisztikaToolStripMenuItem.Name = "statisztikaToolStripMenuItem";
-            statisztikaToolStripMenuItem.Size = new Size(159, 26);
-            statisztikaToolStripMenuItem.Text = "Statisztika";
             // 
             // label1
             // 
@@ -297,11 +256,23 @@
             plotView3.ZoomRectangleCursor = Cursors.SizeNWSE;
             plotView3.ZoomVerticalCursor = Cursors.SizeNS;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label6.Location = new Point(336, 20);
+            label6.Name = "label6";
+            label6.Size = new Size(223, 31);
+            label6.TabIndex = 23;
+            label6.Text = "Filmek szerkesztése";
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1580, 859);
+            Controls.Add(label6);
             Controls.Add(plotView3);
             Controls.Add(plotView2);
             Controls.Add(button1);
@@ -324,13 +295,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
             Name = "AdminForm";
             Text = "AdminForm";
             Load += AdminForm_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
@@ -338,16 +305,10 @@
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem menuToolStripMenuItem;
-        private ToolStripMenuItem userToolStripMenuItem;
-        private ToolStripMenuItem adminToolStripMenuItem;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
-        private ToolStripMenuItem statisztikaToolStripMenuItem;
         private Button AddButton;
         private Button button2;
         private Button UpdateButton;
@@ -366,5 +327,6 @@
         private Button button1;
         private OxyPlot.WindowsForms.PlotView plotView2;
         private OxyPlot.WindowsForms.PlotView plotView3;
+        private Label label6;
     }
 }

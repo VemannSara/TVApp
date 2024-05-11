@@ -59,25 +59,26 @@
             // 
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 244);
+            dataGridView1.Location = new Point(7, 350);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(776, 334);
+            dataGridView1.Size = new Size(1032, 334);
             dataGridView1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label1.ForeColor = SystemColors.Desktop;
-            label1.Location = new Point(12, 208);
+            label1.Location = new Point(7, 300);
             label1.Name = "label1";
-            label1.Size = new Size(133, 20);
+            label1.Size = new Size(194, 28);
             label1.TabIndex = 2;
             label1.Text = "Aktuális műsorlista";
             // 
             // button1
             // 
-            button1.Location = new Point(672, 199);
+            button1.Location = new Point(915, 303);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 3;
@@ -88,16 +89,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 32);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label2.Location = new Point(12, 116);
             label2.Name = "label2";
-            label2.Size = new Size(59, 20);
+            label2.Size = new Size(84, 28);
             label2.TabIndex = 4;
             label2.Text = "Keresés";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 71);
+            label3.Location = new Point(24, 171);
             label3.Name = "label3";
             label3.Size = new Size(35, 20);
             label3.TabIndex = 5;
@@ -105,7 +107,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(105, 68);
+            textBox1.Location = new Point(105, 168);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 6;
@@ -113,7 +115,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 113);
+            label4.Location = new Point(24, 214);
             label4.Name = "label4";
             label4.Size = new Size(67, 20);
             label4.TabIndex = 7;
@@ -121,7 +123,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(105, 113);
+            textBox2.Location = new Point(105, 211);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 8;
@@ -129,7 +131,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(24, 160);
+            label5.Location = new Point(24, 260);
             label5.Name = "label5";
             label5.Size = new Size(47, 20);
             label5.TabIndex = 9;
@@ -137,7 +139,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(105, 157);
+            textBox3.Location = new Point(105, 260);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(125, 27);
             textBox3.TabIndex = 10;
@@ -145,7 +147,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(267, 68);
+            label6.Location = new Point(267, 168);
             label6.Name = "label6";
             label6.Size = new Size(50, 20);
             label6.TabIndex = 11;
@@ -153,7 +155,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(348, 68);
+            textBox4.Location = new Point(348, 168);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(125, 27);
             textBox4.TabIndex = 12;
@@ -161,7 +163,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(267, 116);
+            label7.Location = new Point(267, 227);
             label7.Name = "label7";
             label7.Size = new Size(75, 20);
             label7.TabIndex = 13;
@@ -169,7 +171,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(559, 199);
+            button2.Location = new Point(800, 303);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 14;
@@ -179,14 +181,14 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(348, 113);
+            dateTimePicker1.Location = new Point(348, 227);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(250, 27);
             dateTimePicker1.TabIndex = 15;
             // 
             // button3
             // 
-            button3.Location = new Point(653, 93);
+            button3.Location = new Point(366, 278);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 16;
@@ -196,41 +198,43 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = SystemColors.GradientInactiveCaption;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Size = new Size(1051, 28);
             menuStrip1.TabIndex = 17;
             menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { userToolStripMenuItem, adminToolStripMenuItem });
+            toolStripMenuItem1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(60, 24);
+            toolStripMenuItem1.Size = new Size(63, 24);
             toolStripMenuItem1.Text = "Menu";
             // 
             // userToolStripMenuItem
             // 
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(136, 26);
+            userToolStripMenuItem.Size = new Size(139, 26);
             userToolStripMenuItem.Text = "User";
             // 
             // adminToolStripMenuItem
             // 
             adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(136, 26);
+            adminToolStripMenuItem.Size = new Size(139, 26);
             adminToolStripMenuItem.Text = "Admin";
             adminToolStripMenuItem.Click += adminToolStripMenuItem_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label8.Location = new Point(337, 28);
+            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label8.Location = new Point(535, 53);
             label8.Name = "label8";
-            label8.Size = new Size(23, 28);
+            label8.Size = new Size(32, 38);
             label8.TabIndex = 18;
             label8.Text = "a";
             // 
@@ -243,7 +247,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 590);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(1051, 696);
             Controls.Add(label8);
             Controls.Add(button3);
             Controls.Add(dateTimePicker1);

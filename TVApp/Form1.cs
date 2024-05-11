@@ -88,8 +88,10 @@ namespace TVApp
         {
             //TODO jelszo check
             AdminForm adminForm = new AdminForm();
+            PasswordForm passwordform = new PasswordForm(adminForm);
             adminForm.FormClosed += (sender, e) => RefreshData();
-            adminForm.ShowDialog();
+            passwordform.ShowDialog();
+            //adminForm.ShowDialog();
 
         }
     }
