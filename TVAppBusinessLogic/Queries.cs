@@ -8,6 +8,7 @@ namespace TVAppBusinessLogic;
 
 public class Queries
 {
+    ChartHelper ChartHelper { get; set; } = new ChartHelper();
     // csak a TVadasok tábla adatait kéri le
     public List<Tv> GetAllTvShows()
     {
@@ -261,5 +262,24 @@ public class Queries
             db.SaveChanges();
         }
         //todo exeption
+    }
+
+    public Dictionary<DateTime,int> GetWatchingData(DateTime kezdet, DateTime veg)
+    {
+        using var db = new TvContext();
+        List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
+
+        Dictionary<DateTime, int> dict = ChartHelper.CreateDictionary(kezdet, veg);
+
+        var query = adatok.Where(tv => tv.Kezdet.Date >= kezdet.Date && tv.Kezdet.Date <= veg.Date).ToList();
+        foreach (var adat in query)
+        {
+            if (adat.Nev != null) // tehát nézi valaki a filmet
+            {
+                dict[adat.Kezdet.Date] += adat.Hossz; // megkeresi az adott kulcsú elemet és az értéket módosítja
+                //dict.Add(adat.Kezdet, adat.Hossz);
+            }
+        }
+        return dict;
     }
 }

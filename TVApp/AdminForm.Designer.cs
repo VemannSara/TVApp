@@ -47,6 +47,12 @@
             dateTimePicker1 = new DateTimePicker();
             label5 = new Label();
             numericUpDown1 = new NumericUpDown();
+            plotView1 = new OxyPlot.WindowsForms.PlotView();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker3 = new DateTimePicker();
+            labe6 = new Label();
+            label7 = new Label();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -58,7 +64,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(890, 28);
+            menuStrip1.Size = new Size(1580, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -160,7 +166,7 @@
             dataGridView1.Location = new Point(0, 253);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(890, 229);
+            dataGridView1.Size = new Size(917, 260);
             dataGridView1.TabIndex = 8;
             // 
             // MusorTextbox
@@ -209,11 +215,71 @@
             numericUpDown1.TabIndex = 14;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // plotView1
+            // 
+            plotView1.Location = new Point(1032, 87);
+            plotView1.Name = "plotView1";
+            plotView1.PanCursor = Cursors.Hand;
+            plotView1.Size = new Size(419, 274);
+            plotView1.TabIndex = 15;
+            plotView1.Text = "plotView1";
+            plotView1.ZoomHorizontalCursor = Cursors.SizeWE;
+            plotView1.ZoomRectangleCursor = Cursors.SizeNWSE;
+            plotView1.ZoomVerticalCursor = Cursors.SizeNS;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(1135, 380);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(250, 27);
+            dateTimePicker2.TabIndex = 16;
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(1135, 423);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(250, 27);
+            dateTimePicker3.TabIndex = 17;
+            // 
+            // labe6
+            // 
+            labe6.AutoSize = true;
+            labe6.Location = new Point(1052, 385);
+            labe6.Name = "labe6";
+            labe6.Size = new Size(53, 20);
+            labe6.TabIndex = 18;
+            labe6.Text = "kezdet";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(1072, 430);
+            label7.Name = "label7";
+            label7.Size = new Size(33, 20);
+            label7.TabIndex = 19;
+            label7.Text = "vég";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1198, 484);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 20;
+            button1.Text = "Mutasd!";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(890, 482);
+            ClientSize = new Size(1580, 794);
+            Controls.Add(button1);
+            Controls.Add(label7);
+            Controls.Add(labe6);
+            Controls.Add(dateTimePicker3);
+            Controls.Add(dateTimePicker2);
+            Controls.Add(plotView1);
             Controls.Add(numericUpDown1);
             Controls.Add(label5);
             Controls.Add(dateTimePicker1);
@@ -262,5 +328,11 @@
         private DateTimePicker dateTimePicker1;
         private Label label5;
         private NumericUpDown numericUpDown1;
+        private OxyPlot.WindowsForms.PlotView plotView1;
+        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePicker3;
+        private Label labe6;
+        private Label label7;
+        private Button button1;
     }
 }

@@ -214,13 +214,13 @@
             // userToolStripMenuItem
             // 
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(224, 26);
+            userToolStripMenuItem.Size = new Size(136, 26);
             userToolStripMenuItem.Text = "User";
             // 
             // adminToolStripMenuItem
             // 
             adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(224, 26);
+            adminToolStripMenuItem.Size = new Size(136, 26);
             adminToolStripMenuItem.Text = "Admin";
             adminToolStripMenuItem.Click += adminToolStripMenuItem_Click;
             // 

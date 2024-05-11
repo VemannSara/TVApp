@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OxyPlot.Axes;
+using OxyPlot.Series;
+using OxyPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +12,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TVApp.Model;
 using TVAppBusinessLogic;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace TVApp
 {
     public partial class AdminForm : Form
     {
         public Queries Queries { get; set; } = new Queries();
+        public ChartHelper ChartHelper { get; set; } = new ChartHelper();
         public string musor;
         public string mufaj;
         public string csatorna;
@@ -25,12 +30,45 @@ namespace TVApp
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-        }
+            // diagramm
 
+        }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
             RefreshData();
+        }
+
+        private void CreateBarSeries()
+        {
+            var model = new PlotModel { Title = "Tv nézettség" };
+
+            DateTime startTime = dateTimePicker2.Value.Date;
+            DateTime endTime = dateTimePicker3.Value.Date;
+            Dictionary<DateTime, int> watchingdata = Queries.GetWatchingData(startTime, endTime);
+
+            var barSeries = new BarSeries
+            {
+                ItemsSource = ChartHelper.CreateBarItems(watchingdata),
+                LabelPlacement = LabelPlacement.Inside,
+                LabelFormatString = "{0:.00} perc"
+            };
+            model.Series.Add(barSeries);
+
+            List<string> days = new List<string>();
+            while (startTime <= endTime)
+            {
+                days.Add(startTime.ToString("yyyy.MM.dd"));
+                startTime = startTime.AddDays(1);
+            }
+
+            model.Axes.Add(new CategoryAxis
+            {
+                Position = AxisPosition.Left,
+                ItemsSource = days
+            });
+
+            plotView1.Model = model;
         }
         public void RefreshData()
         {
@@ -48,7 +86,7 @@ namespace TVApp
             csatorna = CsatornaTextBox.Text;
             mufaj = MufajTextbox.Text;
             datum = dateTimePicker1.Value;
-            Queries.AddNewShow(musor,csatorna,mufaj,datum);
+            Queries.AddNewShow(musor, csatorna, mufaj, datum);
             RefreshData();
             //todo exeptions
         }
@@ -62,7 +100,7 @@ namespace TVApp
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            Tv tvadasok= new Tv();
+            Tv tvadasok = new Tv();
 
             Id = (int)numericUpDown1.Value;
             tvadasok.Musor = MusorTextbox.Text;
@@ -72,5 +110,11 @@ namespace TVApp
             Queries.Update(Id, tvadasok);
             RefreshData();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateBarSeries();
+        }
     }
+
 }
