@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Security.Cryptography;
 using TVAppBusinessLogic;
-using System.Security.Cryptography;
-using System.Diagnostics;
 
 namespace TVApp
 {
@@ -28,6 +18,7 @@ namespace TVApp
             {
                 string hash = Password.GetHash(sha256Hash, source);
                
+                // a jelszó hash
                 string correcthash = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
 
                 if (Password.VerifyHash(sha256Hash, source, correcthash))

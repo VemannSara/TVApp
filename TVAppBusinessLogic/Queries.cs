@@ -87,12 +87,14 @@ public class Queries
                                   }
                                   ).ToList();
 
+        //tv id alapján egyediek
         List<TvShowsWithViewer> tvShowsWithViewersDistincted = tvShowsWithViewers.DistinctBy(item => item.TvId).ToList();
 
         foreach (TvShowsWithViewer tvShowsWithViewer in tvShowsWithViewersDistincted)
         {
-            string ujNev = string.Empty;
+            string ujNev = string.Empty;           
             tvShowsWithViewers.Where(item => item.TvId == tvShowsWithViewer.TvId).ToList().ForEach(item => ujNev += $"{item.Nev},");
+            // utolsó vessző kitörlése
             ujNev = ujNev.Remove(ujNev.Length - 1, 1);
             tvShowsWithViewer.Nev = ujNev;
         }
