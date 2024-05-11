@@ -24,20 +24,19 @@ namespace TVApp
         public string mufaj;
         public string csatorna;
         public DateTime datum;
+        public int hossz;
         public int Id;
         public AdminForm()
         {
             InitializeComponent();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            dateTimePicker1.CustomFormat = "MM/dd/yyyy HH:mm:ss";
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
             RefreshData();
-            CreateBarSeries();
-            CreatePieChartChannel();
-            CreatePieChartGenre();
+            
         }
 
         private void CreateBarSeries()
@@ -105,7 +104,11 @@ namespace TVApp
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = adatok;
             dataGridView1.ReadOnly = true;
+            CreateBarSeries();
+            CreatePieChartChannel();
+            CreatePieChartGenre();
             //dataGridView1.AutoSize = true; nem lesz vele görgetés
+
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -114,7 +117,8 @@ namespace TVApp
             csatorna = CsatornaTextBox.Text;
             mufaj = MufajTextbox.Text;
             datum = dateTimePicker1.Value;
-            Queries.AddNewShow(musor, csatorna, mufaj, datum);
+            hossz = (int)numericUpDown2.Value;
+            Queries.AddNewShow(musor, csatorna, mufaj, datum,hossz);
             RefreshData();
             //todo exeptions
         }
@@ -135,6 +139,7 @@ namespace TVApp
             tvadasok.Csatorna = CsatornaTextBox.Text;
             tvadasok.Mufaj = MufajTextbox.Text;
             tvadasok.Kezdet = dateTimePicker1.Value;
+            tvadasok.Hossz = (int)numericUpDown2.Value;
             Queries.Update(Id, tvadasok);
             RefreshData();
         }

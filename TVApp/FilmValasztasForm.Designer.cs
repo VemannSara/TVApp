@@ -77,12 +77,13 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(192, 255, 192);
             button1.Location = new Point(200, 325);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 4;
             button1.Text = "Ment";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2

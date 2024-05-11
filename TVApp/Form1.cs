@@ -55,6 +55,7 @@ namespace TVApp
             string channel = textBox2.Text;
             string genre = textBox3.Text;
             string tvshow = textBox4.Text;
+            DateTime date = dateTimePicker1.Value.Date;
 
             if (!string.IsNullOrWhiteSpace(viewerName))
             {
@@ -62,9 +63,9 @@ namespace TVApp
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = adatok;
             }
-            else if ((!string.IsNullOrWhiteSpace(channel)) || (!string.IsNullOrWhiteSpace(genre)) || (!string.IsNullOrWhiteSpace(tvshow)))
+            else if ((!string.IsNullOrWhiteSpace(channel)) || (!string.IsNullOrWhiteSpace(genre)) || (!string.IsNullOrWhiteSpace(tvshow)) || (date != new DateTime(1990, 1, 1)))
             {
-                List<Tv> adatok2 = Queries.SearchForTvShow(channel, genre, tvshow);
+                List<Tv> adatok2 = Queries.SearchForTvShow(channel, genre, tvshow, date);
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = adatok2;
             }
@@ -93,6 +94,21 @@ namespace TVApp
             passwordform.ShowDialog();
             //adminForm.ShowDialog();
 
+        }
+
+        private void ResetDateButton_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = new DateTime(1990, 1, 1);
+        }
+
+        private void WholeListButton_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+            textBox1.Text = string.Empty;
+            textBox2.Text = string.Empty;
+            textBox3.Text = string.Empty;
+            textBox4.Text = string.Empty;
+            dateTimePicker1.Value = new DateTime(1990, 1, 1);
         }
     }
 }

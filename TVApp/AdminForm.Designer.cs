@@ -51,14 +51,17 @@
             plotView2 = new OxyPlot.WindowsForms.PlotView();
             plotView3 = new OxyPlot.WindowsForms.PlotView();
             label6 = new Label();
+            label8 = new Label();
+            numericUpDown2 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(430, 160);
+            label1.Location = new Point(566, 148);
             label1.Name = "label1";
             label1.Size = new Size(54, 20);
             label1.TabIndex = 1;
@@ -93,27 +96,29 @@
             // 
             // AddButton
             // 
+            AddButton.BackColor = Color.FromArgb(192, 255, 192);
             AddButton.Location = new Point(747, 100);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(94, 29);
             AddButton.TabIndex = 5;
             AddButton.Text = "Add";
-            AddButton.UseVisualStyleBackColor = true;
+            AddButton.UseVisualStyleBackColor = false;
             AddButton.Click += AddButton_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.FromArgb(255, 128, 128);
             button2.Location = new Point(66, 169);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 6;
             button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += DeleteButton_Click;
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new Point(747, 169);
+            UpdateButton.Location = new Point(747, 186);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(94, 29);
             UpdateButton.TabIndex = 7;
@@ -153,7 +158,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(336, 194);
+            dateTimePicker1.Location = new Point(464, 186);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(259, 27);
             dateTimePicker1.TabIndex = 12;
@@ -266,12 +271,31 @@
             label6.TabIndex = 23;
             label6.Text = "Filmek szerkesztése";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(240, 148);
+            label8.Name = "label8";
+            label8.Size = new Size(91, 20);
+            label8.TabIndex = 24;
+            label8.Text = "Hossz (perc)";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(252, 186);
+            numericUpDown2.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(55, 27);
+            numericUpDown2.TabIndex = 25;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1580, 859);
+            Controls.Add(numericUpDown2);
+            Controls.Add(label8);
             Controls.Add(label6);
             Controls.Add(plotView3);
             Controls.Add(plotView2);
@@ -300,6 +324,7 @@
             Load += AdminForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -328,5 +353,7 @@
         private OxyPlot.WindowsForms.PlotView plotView2;
         private OxyPlot.WindowsForms.PlotView plotView3;
         private Label label6;
+        private Label label8;
+        private NumericUpDown numericUpDown2;
     }
 }

@@ -45,13 +45,15 @@ public class Queries
         return query.ToList();
     }
 
-    public List<Tv> SearchForTvShow(string channel, string genre, string tvshow)
+    public List<Tv> SearchForTvShow(string channel, string genre, string tvshow, DateTime date)
     {
         using var db = new TvContext();
         var query = from tv in db.Tvadasok
                     where (string.IsNullOrEmpty(channel) || tv.Csatorna.Contains(channel))
                     && (string.IsNullOrEmpty(genre) || tv.Mufaj.Contains(genre))
                     && (string.IsNullOrEmpty(tvshow) || tv.Musor.Contains(tvshow))
+                    && (date.Date == new DateTime(1990,1,1) || tv.Kezdet.Date == date.Date)
+                    //&& (tv.Musor.Contains(date))
                     select new Tv
                     {
                         Musor = tv.Musor,
@@ -60,6 +62,7 @@ public class Queries
                         Csatorna = tv.Csatorna,
                         Felvetel = tv.Felvetel,
                         Mufaj = tv.Mufaj,
+                        Id = tv.Id
                     };
         return query.ToList();
     }
@@ -222,7 +225,7 @@ public class Queries
         return true;
     }
 
-    public void AddNewShow(string musor, string csatorna, string mufaj, DateTime idopont)
+    public void AddNewShow(string musor, string csatorna, string mufaj, DateTime idopont, int hossz)
     {
         using var db = new TvContext();
         Tv newShow = new Tv
@@ -230,7 +233,8 @@ public class Queries
             Musor = musor,
             Csatorna = csatorna,
             Mufaj = mufaj,
-            Kezdet = idopont
+            Kezdet = idopont,
+            Hossz = hossz
         };
         db.Tvadasok.Add(newShow);
         db.SaveChanges();
@@ -254,10 +258,11 @@ public class Queries
         var update = db.Tvadasok.Where(tv => tv.Id == id).FirstOrDefault();
         if (update != null)
         {
-            update.Musor = tvadas.Musor;
-            update.Mufaj = tvadas.Mufaj;
-            update.Csatorna = tvadas.Csatorna;
+            update.Musor = !string.IsNullOrWhiteSpace(tvadas.Musor) ? tvadas.Musor : update.Musor;
+            update.Mufaj = !string.IsNullOrWhiteSpace(tvadas.Mufaj) ? tvadas.Mufaj : update.Mufaj;
+            update.Csatorna = !string.IsNullOrWhiteSpace(tvadas.Csatorna) ? tvadas.Csatorna : update.Csatorna;
             update.Kezdet = tvadas.Kezdet;
+            update.Hossz = tvadas.Hossz != 0 ? tvadas.Hossz : update.Hossz;
 
             db.SaveChanges();
         }

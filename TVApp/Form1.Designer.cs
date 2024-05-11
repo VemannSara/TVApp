@@ -47,10 +47,11 @@
             button3 = new Button();
             menuStrip1 = new MenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
-            userToolStripMenuItem = new ToolStripMenuItem();
             adminToolStripMenuItem = new ToolStripMenuItem();
             label8 = new Label();
             notifyIcon1 = new NotifyIcon(components);
+            ResetDateButton = new Button();
+            WholeListButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -185,6 +186,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(250, 27);
             dateTimePicker1.TabIndex = 15;
+            dateTimePicker1.Value = new DateTime(1990, 1, 1, 0, 0, 0, 0);
             // 
             // button3
             // 
@@ -203,28 +205,22 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1051, 28);
+            menuStrip1.Size = new Size(1043, 28);
             menuStrip1.TabIndex = 17;
             menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
-            toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { userToolStripMenuItem, adminToolStripMenuItem });
+            toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { adminToolStripMenuItem });
             toolStripMenuItem1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new Size(63, 24);
             toolStripMenuItem1.Text = "Menu";
             // 
-            // userToolStripMenuItem
-            // 
-            userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(139, 26);
-            userToolStripMenuItem.Text = "User";
-            // 
             // adminToolStripMenuItem
             // 
             adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(139, 26);
+            adminToolStripMenuItem.Size = new Size(224, 26);
             adminToolStripMenuItem.Text = "Admin";
             adminToolStripMenuItem.Click += adminToolStripMenuItem_Click;
             // 
@@ -232,7 +228,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label8.Location = new Point(535, 53);
+            label8.Location = new Point(472, 53);
             label8.Name = "label8";
             label8.Size = new Size(32, 38);
             label8.TabIndex = 18;
@@ -243,12 +239,38 @@
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
+            // ResetDateButton
+            // 
+            ResetDateButton.BackColor = Color.IndianRed;
+            ResetDateButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            ResetDateButton.ForeColor = SystemColors.ButtonHighlight;
+            ResetDateButton.Location = new Point(617, 228);
+            ResetDateButton.Name = "ResetDateButton";
+            ResetDateButton.Size = new Size(25, 26);
+            ResetDateButton.TabIndex = 19;
+            ResetDateButton.Text = "X";
+            ResetDateButton.UseVisualStyleBackColor = false;
+            ResetDateButton.Click += ResetDateButton_Click;
+            // 
+            // WholeListButton
+            // 
+            WholeListButton.BackColor = Color.FromArgb(100, 215, 143);
+            WholeListButton.Location = new Point(504, 278);
+            WholeListButton.Name = "WholeListButton";
+            WholeListButton.Size = new Size(94, 29);
+            WholeListButton.TabIndex = 20;
+            WholeListButton.Text = "Teljes lista";
+            WholeListButton.UseVisualStyleBackColor = false;
+            WholeListButton.Click += WholeListButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1051, 696);
+            ClientSize = new Size(1043, 696);
+            Controls.Add(WholeListButton);
+            Controls.Add(ResetDateButton);
             Controls.Add(label8);
             Controls.Add(button3);
             Controls.Add(dateTimePicker1);
@@ -297,10 +319,11 @@
         private Button button3;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem userToolStripMenuItem;
         private ToolStripMenuItem adminToolStripMenuItem;
         private Label label8;
         private Label label9;
         private NotifyIcon notifyIcon1;
+        private Button ResetDateButton;
+        private Button WholeListButton;
     }
 }
