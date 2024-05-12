@@ -1,6 +1,6 @@
 ﻿namespace TVApp
 {
-    partial class Form1
+    partial class KezdolapForm
     {
         /// <summary>
         ///  Required designer variable.

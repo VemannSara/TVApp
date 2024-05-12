@@ -2,7 +2,7 @@
 {
     public partial class NevBekeres : Form
     {
-        private Form1 form1 = new Form1();
+        private KezdolapForm form1 = new KezdolapForm();
         private string Nev => textBox1.Text;      
        
         public NevBekeres()

@@ -3,13 +3,13 @@ using TVAppBusinessLogic;
 
 namespace TVApp
 {
-    public partial class Form1 : Form
+    public partial class KezdolapForm : Form
     {
         public Label Label8 => label8;
         public Queries Queries { get; } = new Queries();
         public string Nev { get; set; }
 
-        public Form1()
+        public KezdolapForm()
         {
             InitializeComponent();
             MovieNotifier idozito = new MovieNotifier();
