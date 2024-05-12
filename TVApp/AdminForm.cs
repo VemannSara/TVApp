@@ -1,31 +1,22 @@
-﻿using OxyPlot.Axes;
+﻿using OxyPlot;
+using OxyPlot.Axes;
 using OxyPlot.Series;
-using OxyPlot;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TVApp.Model;
 using TVAppBusinessLogic;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace TVApp
 {
     public partial class AdminForm : Form
     {
-        public Queries Queries { get; set; } = new Queries();
-        public ChartHelper ChartHelper { get; set; } = new ChartHelper();
+        public Queries Queries { get; } = new Queries();
+        public ChartHelper ChartHelper { get; } = new ChartHelper();
         public string musor;
         public string mufaj;
         public string csatorna;
         public DateTime datum;
         public int hossz;
         public int Id;
+
         public AdminForm()
         {
             InitializeComponent();
@@ -35,8 +26,7 @@ namespace TVApp
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            RefreshData();
-            
+            RefreshData();        
         }
 
         private void CreateBarSeries()
@@ -75,7 +65,13 @@ namespace TVApp
         {
             var model = new PlotModel { Title = "Csatornák nézettsége" };
 
-            PieSeries seriesP1 = new PieSeries { StrokeThickness = 2.0, InsideLabelPosition = 0.8, AngleSpan = 360, StartAngle = 0 };
+            PieSeries seriesP1 = new PieSeries
+            {
+                StrokeThickness = 2.0,
+                InsideLabelPosition = 0.8,
+                AngleSpan = 360,
+                StartAngle = 0
+            };
             
             Dictionary<string, double> channeldata = Queries.GetChannelData();
             seriesP1.Slices = ChartHelper.CreatePieSlices(channeldata);       
@@ -107,8 +103,6 @@ namespace TVApp
             CreateBarSeries();
             CreatePieChartChannel();
             CreatePieChartGenre();
-            //dataGridView1.AutoSize = true; nem lesz vele görgetés
-
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -144,10 +138,9 @@ namespace TVApp
             RefreshData();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MutasdButton_Click(object sender, EventArgs e)
         {
             CreateBarSeries();
         }
     }
-
 }

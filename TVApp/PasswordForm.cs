@@ -6,14 +6,17 @@ namespace TVApp
     public partial class PasswordForm : Form
     {
         public Password Password { get; set; } = new Password();
+        private AdminForm adminForm;
+
         public PasswordForm(AdminForm form)
         {
             InitializeComponent();
+            this.adminForm = form;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
-            string source = textBox1.Text;
+            string source = PasswordTextBox.Text;
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 string hash = Password.GetHash(sha256Hash, source);
@@ -23,7 +26,6 @@ namespace TVApp
 
                 if (Password.VerifyHash(sha256Hash, source, correcthash))
                 {
-                    AdminForm adminForm = new AdminForm();
                     this.Hide();
                     adminForm.ShowDialog();
                     this.Close();

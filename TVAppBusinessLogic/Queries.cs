@@ -104,7 +104,6 @@ public class Queries
 
     public List<TvShowsWithViewer> FilterDate(DateTime date, List<TvShowsWithViewer> tvShowsWithViewersList)
     {
-        using var db = new TvContext();
         var query = tvShowsWithViewersList.Where(tv => tv.Kezdet.Date == date.Date).ToList();
         return query;
     }

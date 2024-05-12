@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            PasswordTextBox = new TextBox();
+            OkButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -44,23 +44,23 @@
             label1.TabIndex = 0;
             label1.Text = "Add meg a jelszót!";
             // 
-            // textBox1
+            // PasswordTextBox
             // 
-            textBox1.Location = new Point(59, 43);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.Size = new Size(158, 27);
-            textBox1.TabIndex = 1;
+            PasswordTextBox.Location = new Point(59, 43);
+            PasswordTextBox.Name = "PasswordTextBox";
+            PasswordTextBox.PasswordChar = '*';
+            PasswordTextBox.Size = new Size(158, 27);
+            PasswordTextBox.TabIndex = 1;
             // 
-            // button1
+            // OkButton
             // 
-            button1.Location = new Point(89, 92);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Kész";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            OkButton.Location = new Point(89, 92);
+            OkButton.Name = "OkButton";
+            OkButton.Size = new Size(94, 29);
+            OkButton.TabIndex = 2;
+            OkButton.Text = "Kész";
+            OkButton.UseVisualStyleBackColor = true;
+            OkButton.Click += OkButton_Click;
             // 
             // PasswordForm
             // 
@@ -68,8 +68,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(269, 130);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(OkButton);
+            Controls.Add(PasswordTextBox);
             Controls.Add(label1);
             Name = "PasswordForm";
             Text = "Password";
@@ -80,7 +80,7 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox PasswordTextBox;
+        private Button OkButton;
     }
 }

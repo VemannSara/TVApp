@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            listBox1 = new ListBox();
+            filmListBox = new ListBox();
             label2 = new Label();
-            listBox2 = new ListBox();
-            button1 = new Button();
-            button2 = new Button();
+            datumListBox = new ListBox();
+            mentButton = new Button();
+            FelvetelButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -46,15 +46,15 @@
             label1.TabIndex = 0;
             label1.Text = "Mit szeretnél nézni?";
             // 
-            // listBox1
+            // filmListBox
             // 
-            listBox1.BackColor = SystemColors.InactiveBorder;
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(96, 77);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(165, 224);
-            listBox1.TabIndex = 1;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            filmListBox.BackColor = SystemColors.InactiveBorder;
+            filmListBox.FormattingEnabled = true;
+            filmListBox.Location = new Point(96, 77);
+            filmListBox.Name = "filmListBox";
+            filmListBox.Size = new Size(165, 224);
+            filmListBox.TabIndex = 1;
+            filmListBox.SelectedIndexChanged += filmListBox_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -66,35 +66,35 @@
             label2.TabIndex = 2;
             label2.Text = "Melyik időpontban néznéd?";
             // 
-            // listBox2
+            // datumListBox
             // 
-            listBox2.BackColor = SystemColors.InactiveBorder;
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(367, 77);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(169, 224);
-            listBox2.TabIndex = 3;
+            datumListBox.BackColor = SystemColors.InactiveBorder;
+            datumListBox.FormattingEnabled = true;
+            datumListBox.Location = new Point(367, 77);
+            datumListBox.Name = "datumListBox";
+            datumListBox.Size = new Size(169, 224);
+            datumListBox.TabIndex = 3;
             // 
-            // button1
+            // mentButton
             // 
-            button1.BackColor = Color.FromArgb(192, 255, 192);
-            button1.Location = new Point(200, 325);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 4;
-            button1.Text = "Ment";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            mentButton.BackColor = Color.FromArgb(192, 255, 192);
+            mentButton.Location = new Point(200, 325);
+            mentButton.Name = "mentButton";
+            mentButton.Size = new Size(94, 29);
+            mentButton.TabIndex = 4;
+            mentButton.Text = "Ment";
+            mentButton.UseVisualStyleBackColor = false;
+            mentButton.Click += mentButton_Click;
             // 
-            // button2
+            // FelvetelButton
             // 
-            button2.Location = new Point(335, 325);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 5;
-            button2.Text = "Felvétel";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += FelvetelBtn_Click;
+            FelvetelButton.Location = new Point(335, 325);
+            FelvetelButton.Name = "FelvetelButton";
+            FelvetelButton.Size = new Size(94, 29);
+            FelvetelButton.TabIndex = 5;
+            FelvetelButton.Text = "Felvétel";
+            FelvetelButton.UseVisualStyleBackColor = true;
+            FelvetelButton.Click += FelvetelButton_Click;
             // 
             // FilmValasztasForm
             // 
@@ -102,11 +102,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(622, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(listBox2);
+            Controls.Add(FelvetelButton);
+            Controls.Add(mentButton);
+            Controls.Add(datumListBox);
             Controls.Add(label2);
-            Controls.Add(listBox1);
+            Controls.Add(filmListBox);
             Controls.Add(label1);
             Name = "FilmValasztasForm";
             Text = "FilmValasztasForm";
@@ -118,10 +118,10 @@
         #endregion
 
         private Label label1;
-        private ListBox listBox1;
+        private ListBox filmListBox;
         private Label label2;
-        private ListBox listBox2;
-        private Button button1;
-        private Button button2;
+        private ListBox datumListBox;
+        private Button mentButton;
+        private Button FelvetelButton;
     }
 }

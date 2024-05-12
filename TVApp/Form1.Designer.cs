@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            button1 = new Button();
+            XmlButton = new Button();
             label2 = new Label();
             label3 = new Label();
             textBox1 = new TextBox();
@@ -42,9 +42,9 @@
             label6 = new Label();
             textBox4 = new TextBox();
             label7 = new Label();
-            button2 = new Button();
+            FilmnezesButton = new Button();
             dateTimePicker1 = new DateTimePicker();
-            button3 = new Button();
+            KeresesButton = new Button();
             menuStrip1 = new MenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
             adminToolStripMenuItem = new ToolStripMenuItem();
@@ -77,15 +77,15 @@
             label1.TabIndex = 2;
             label1.Text = "Aktuális műsorlista";
             // 
-            // button1
+            // XmlButton
             // 
-            button1.Location = new Point(915, 303);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 3;
-            button1.Text = "xml";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            XmlButton.Location = new Point(915, 303);
+            XmlButton.Name = "XmlButton";
+            XmlButton.Size = new Size(94, 29);
+            XmlButton.TabIndex = 3;
+            XmlButton.Text = "xml";
+            XmlButton.UseVisualStyleBackColor = true;
+            XmlButton.Click += XmlButton_Click;
             // 
             // label2
             // 
@@ -170,15 +170,15 @@
             label7.TabIndex = 13;
             label7.Text = "Időtartam";
             // 
-            // button2
+            // FilmnezesButton
             // 
-            button2.Location = new Point(800, 303);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 14;
-            button2.Text = "Filmnézés";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            FilmnezesButton.Location = new Point(800, 303);
+            FilmnezesButton.Name = "FilmnezesButton";
+            FilmnezesButton.Size = new Size(94, 29);
+            FilmnezesButton.TabIndex = 14;
+            FilmnezesButton.Text = "Filmnézés";
+            FilmnezesButton.UseVisualStyleBackColor = true;
+            FilmnezesButton.Click += FilmnezesButton_Click;
             // 
             // dateTimePicker1
             // 
@@ -188,15 +188,15 @@
             dateTimePicker1.TabIndex = 15;
             dateTimePicker1.Value = new DateTime(1990, 1, 1, 0, 0, 0, 0);
             // 
-            // button3
+            // KeresesButton
             // 
-            button3.Location = new Point(366, 278);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 16;
-            button3.Text = "Keresés";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            KeresesButton.Location = new Point(366, 278);
+            KeresesButton.Name = "KeresesButton";
+            KeresesButton.Size = new Size(94, 29);
+            KeresesButton.TabIndex = 16;
+            KeresesButton.Text = "Keresés";
+            KeresesButton.UseVisualStyleBackColor = true;
+            KeresesButton.Click += KeresesButton_Click;
             // 
             // menuStrip1
             // 
@@ -220,7 +220,7 @@
             // adminToolStripMenuItem
             // 
             adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            adminToolStripMenuItem.Size = new Size(224, 26);
+            adminToolStripMenuItem.Size = new Size(139, 26);
             adminToolStripMenuItem.Text = "Admin";
             adminToolStripMenuItem.Click += adminToolStripMenuItem_Click;
             // 
@@ -272,9 +272,9 @@
             Controls.Add(WholeListButton);
             Controls.Add(ResetDateButton);
             Controls.Add(label8);
-            Controls.Add(button3);
+            Controls.Add(KeresesButton);
             Controls.Add(dateTimePicker1);
-            Controls.Add(button2);
+            Controls.Add(FilmnezesButton);
             Controls.Add(label7);
             Controls.Add(textBox4);
             Controls.Add(label6);
@@ -285,7 +285,7 @@
             Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(button1);
+            Controls.Add(XmlButton);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
@@ -303,7 +303,7 @@
         #endregion
         private DataGridView dataGridView1;
         private Label label1;
-        private Button button1;
+        private Button XmlButton;
         private Label label2;
         private Label label3;
         private TextBox textBox1;
@@ -314,9 +314,9 @@
         private Label label6;
         private TextBox textBox4;
         private Label label7;
-        private Button button2;
+        private Button FilmnezesButton;
         private DateTimePicker dateTimePicker1;
-        private Button button3;
+        private Button KeresesButton;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem adminToolStripMenuItem;

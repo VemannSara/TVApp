@@ -47,7 +47,7 @@
             dateTimePicker3 = new DateTimePicker();
             labe6 = new Label();
             label7 = new Label();
-            button1 = new Button();
+            MutasdButton = new Button();
             plotView2 = new OxyPlot.WindowsForms.PlotView();
             plotView3 = new OxyPlot.WindowsForms.PlotView();
             label6 = new Label();
@@ -227,15 +227,15 @@
             label7.TabIndex = 19;
             label7.Text = "vég";
             // 
-            // button1
+            // MutasdButton
             // 
-            button1.Location = new Point(1198, 484);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 20;
-            button1.Text = "Mutasd!";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            MutasdButton.Location = new Point(1198, 484);
+            MutasdButton.Name = "MutasdButton";
+            MutasdButton.Size = new Size(94, 29);
+            MutasdButton.TabIndex = 20;
+            MutasdButton.Text = "Mutasd!";
+            MutasdButton.UseVisualStyleBackColor = true;
+            MutasdButton.Click += MutasdButton_Click;
             // 
             // plotView2
             // 
@@ -299,7 +299,7 @@
             Controls.Add(label6);
             Controls.Add(plotView3);
             Controls.Add(plotView2);
-            Controls.Add(button1);
+            Controls.Add(MutasdButton);
             Controls.Add(label7);
             Controls.Add(labe6);
             Controls.Add(dateTimePicker3);
@@ -349,7 +349,7 @@
         private DateTimePicker dateTimePicker3;
         private Label labe6;
         private Label label7;
-        private Button button1;
+        private Button MutasdButton;
         private OxyPlot.WindowsForms.PlotView plotView2;
         private OxyPlot.WindowsForms.PlotView plotView3;
         private Label label6;

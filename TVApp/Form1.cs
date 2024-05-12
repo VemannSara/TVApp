@@ -1,35 +1,26 @@
-//using QueriesLib.Queries;
-//using TVMusor.Model;
-
-using Microsoft.VisualBasic;
 using TVApp.Model;
 using TVAppBusinessLogic;
-using System.Xml.Serialization;
-using System.Diagnostics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace TVApp
 {
     public partial class Form1 : Form
     {
-
         public Label Label8 => label8;
-        public DataGridView DataGridView1 => dataGridView1;
-        public Queries Queries { get; set; } = new Queries();
+        public Queries Queries { get; } = new Queries();
         public string Nev { get; set; }
 
         public Form1()
         {
             InitializeComponent();
             MovieNotifier idozito = new MovieNotifier();
-            idozito.MovieStarting += (musor) => Notification(musor);//MessageBox.Show($"A {musor} 15 perc múlva kezdõdik.", "Film kezdés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            idozito.MovieStarting += (musor) => Notification(musor);
             // külön task-ban elindítja a monitorozást
             Task.Factory.StartNew(() => idozito.Monitor());
         }
 
         public void Notification(string musor)
         {
-            notifyIcon1.BalloonTipText = $"A {musor} 15 perc múlva kezdõdik";
+            notifyIcon1.BalloonTipText = $"A(z) {musor} 15 perc múlva kezdõdik";
             notifyIcon1.BalloonTipTitle = "Figyelem";
             notifyIcon1.Icon = SystemIcons.Information;
             notifyIcon1.ShowBalloonTip(500);
@@ -46,10 +37,9 @@ namespace TVApp
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = adatok;
             dataGridView1.ReadOnly = true;
-            //dataGridView1.AutoSize = true; nem lesz vele görgetés
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void KeresesButton_Click(object sender, EventArgs e)
         {
             string viewerName = textBox1.Text;
             string channel = textBox2.Text;
@@ -71,14 +61,14 @@ namespace TVApp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void XmlButton_Click(object sender, EventArgs e)
         {
 
             XMLForm dialog = new XMLForm();
             dialog.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void FilmnezesButton_Click(object sender, EventArgs e)
         {
             FilmValasztasForm dialog = new FilmValasztasForm(Nev);
             dialog.FormClosed += (sender, e) => RefreshData();
@@ -86,14 +76,11 @@ namespace TVApp
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //TODO jelszo check
+        {            
             AdminForm adminForm = new AdminForm();
             PasswordForm passwordform = new PasswordForm(adminForm);
             adminForm.FormClosed += (sender, e) => RefreshData();
             passwordform.ShowDialog();
-            //adminForm.ShowDialog();
-
         }
 
         private void ResetDateButton_Click(object sender, EventArgs e)

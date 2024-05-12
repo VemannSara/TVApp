@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TVAppBusinessLogic
 {
     public class Password
     {
-        public static string GetHash(HashAlgorithm hashAlgorithm, string input)
+        public string GetHash(HashAlgorithm hashAlgorithm, string input)
         {
-
             // Convert the input string to a byte array and compute the hash.
             byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
 
@@ -30,7 +25,7 @@ namespace TVAppBusinessLogic
             return sBuilder.ToString();
         }
 
-        public static bool VerifyHash(HashAlgorithm hashAlgorithm, string input, string hash)
+        public bool VerifyHash(HashAlgorithm hashAlgorithm, string input, string hash)
         {
             // Hash the input.
             var hashOfInput = GetHash(hashAlgorithm, input);

@@ -1,25 +1,10 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TVApp.Model;
-using TVAppBusinessLogic;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using TVAppBusinessLogic;
 
 namespace TVApp;
 
 public partial class FilmValasztasForm : Form
 {
-    public Queries Queries { get; set; } = new Queries();
-    NevBekeres nevBekeres = new NevBekeres();
+    public Queries Queries { get; } = new Queries();
     private string nev;
 
     public FilmValasztasForm(string nev)
@@ -31,35 +16,35 @@ public partial class FilmValasztasForm : Form
     private void FilmValasztasForm_Load(object sender, EventArgs e)
     {
         // ha betöltődik a form feltölti a listát
-        listBox1.Items.Clear();
+        filmListBox.Items.Clear();
         List<string> TvShows = Queries.ShowAllUniqueTvShow();
         foreach (string film in TvShows)
         {
-            listBox1.Items.Add(film);
+            filmListBox.Items.Add(film);
         }
 
     }
 
-    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+    private void filmListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        listBox2.Items.Clear();
-        string selectedfilm = listBox1.SelectedItem as string;
+        datumListBox.Items.Clear();
+        string selectedfilm = filmListBox.SelectedItem as string;
         List<DateTime> datesforfilm = Queries.GetDateForTvShow(selectedfilm);
         if (selectedfilm != null)
         {
             foreach (DateTime date in datesforfilm)
             {
-                listBox2.Items.Add(date);
+                datumListBox.Items.Add(date);
             }
         }
     }
-    //TODO felvétel gomb
+
     // felvétel: megnéz, hogy van-e másikigaz felvétel, ha igen megnéz dátum (plusz-minusz milyen hosszúak a filmek), ha ez a tartomány egyezik, akkor felvétel-> igen
-    private void button1_Click(object sender, EventArgs e)
+    private void mentButton_Click(object sender, EventArgs e)
     {
         DateTime date;
-        string selectedfilm = listBox1.SelectedItem as string;
-        date = Convert.ToDateTime(listBox2.SelectedItem);
+        string selectedfilm = filmListBox.SelectedItem as string;
+        date = Convert.ToDateTime(datumListBox.SelectedItem);
         string nezo = Queries.WhoIsWathing(selectedfilm, date);
         if (Queries.IsSomeoneWatching(selectedfilm, date))
         {
@@ -93,11 +78,11 @@ public partial class FilmValasztasForm : Form
         this.Close();
     }
 
-    private void FelvetelBtn_Click(object sender, EventArgs e)
+    private void FelvetelButton_Click(object sender, EventArgs e)
     {
         DateTime date;
-        string selectedfilm = listBox1.SelectedItem as string;
-        date = Convert.ToDateTime(listBox2.SelectedItem);
+        string selectedfilm = filmListBox.SelectedItem as string;
+        date = Convert.ToDateTime(datumListBox.SelectedItem);
         // fgv vane már felvétel
         // ha van masik fgv ido ellenőrzés
         if (Queries.IsThereAnyRecording())
