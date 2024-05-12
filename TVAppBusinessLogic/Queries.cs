@@ -175,7 +175,7 @@ public class Queries
         using var db = new TvContext();
         List<TvShowsWithViewer> adatok = GetTvShowsWithViewers();
         var nev = adatok.Where(tv => tv.Musor == musor && tv.Kezdet == date).Select(tv => tv.Nev).FirstOrDefault();
-        return nev; // esetleg exeprion ha nem nézi senki
+        return nev; // esetleg exeption ha nem nézi senki
     }
 
     // update tvshowwithviewer
@@ -218,9 +218,41 @@ public class Queries
         {
             DateTime endtimeRec = film.Kezdet.AddMinutes(film.Hossz);
             DateTime endtimeSelect = date.AddMinutes(hossz);
-            if ((date.Date == film.Kezdet.Date) && (endtimeRec >= date || endtimeSelect >= date))
+            if (date.Date == film.Kezdet.Date)
             {
-                return false;
+                if (date < film.Kezdet && endtimeSelect > film.Kezdet)
+                {
+                    return false;
+                }
+                if (date > film.Kezdet && date < endtimeRec)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool CanWeWatch(string musor, DateTime date)
+    {
+        using var db = new TvContext();
+        var nezettMusorok = GetTvShowsWithViewers().Where(nezo => !string.IsNullOrWhiteSpace(nezo.Nev));
+        var hossz = db.Tvadasok.Where(tv => tv.Musor == musor && tv.Kezdet == date).Select(tv => tv.Hossz).FirstOrDefault();
+
+        foreach (var film in nezettMusorok)
+        {
+            DateTime endtimeWatched = film.Kezdet.AddMinutes(film.Hossz);
+            DateTime endtimeSelect = date.AddMinutes(hossz);
+            if (date.Date == film.Kezdet.Date)
+            {
+                if (date < film.Kezdet && endtimeSelect > film.Kezdet)
+                {
+                    return false;
+                }
+                if (date > film.Kezdet && date < endtimeWatched)
+                {
+                    return false;
+                }
             }
         }
         return true;

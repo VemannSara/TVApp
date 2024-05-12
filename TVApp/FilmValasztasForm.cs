@@ -67,7 +67,14 @@ public partial class FilmValasztasForm : Form
         }
         else
         {
-            AddNewNameAndClose(nev, selectedfilm, date);
+            if (Queries.CanWeWatch(selectedfilm,date))
+            {
+                AddNewNameAndClose(nev, selectedfilm, date);
+            }
+            else
+            {
+                MessageBox.Show("Ebben az intervallumban már valaki néz egy másik filmet.", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 

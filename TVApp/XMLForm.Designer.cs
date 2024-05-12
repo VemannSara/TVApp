@@ -64,6 +64,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(476, 229);
             Controls.Add(button1);
             Controls.Add(dateTimePicker1);
